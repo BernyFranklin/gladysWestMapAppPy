@@ -31,9 +31,12 @@ def start():
 	"""
 		logs the user in, and runs the app
 	"""
-
+	print("=====================================")
+	print("Welcome to the Gladys West Map App")
+	print("Please login to continue")
+	print("=====================================")
 	userName = userLogin.login()
-
+	print()
 	runApp(userName)
 
 
@@ -70,16 +73,29 @@ def runApp(userName):
 			here students need to change and add to this code to
 			handle their menu options
 		"""
-		# quit
-		if firstChar == 'q':
-			userQuit = True
-
-		elif firstChar == 'm':
-
-		# run some tests (this is part 1 of 2)
-		elif firstChar == 't':
+		# Run tests
+		if firstChar == 't':
 			runTests()
 
+		# Set current position
+		elif firstChar == 'c':
+			x = input("Please enter value for x: ")
+			y = input("Please enter value for y: ")
+			
+
+		# Set destination position
+		elif firstChar == 'd':
+			runTests()
+
+		# Map distance
+		elif firstChar == 'm':
+			runTests()
+		
+		# Quit
+		elif firstChar == 'q':
+			userQuit = True
+
+		# Error message
 		else:
 			print("ERROR: " + firstChar + " is not a valid command")
 

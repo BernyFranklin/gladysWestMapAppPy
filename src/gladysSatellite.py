@@ -72,4 +72,3 @@ def gpsValue(x, y, sat):
 
 	return value
 
-print("Hello")
