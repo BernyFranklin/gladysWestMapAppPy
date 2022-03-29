@@ -54,7 +54,7 @@ def gpsValue(x, y, sat):
 		You can/should remove this long comment before you submit your work.  
 		I'm just giving advice to try to help you. Good luck!  -Gabriel :)
 	"""
-	pathToJSONDataFiles = "C:/Users/jerom/GitHub/evc-cit134a-python/gladys-west-map/data"
+	pathToJSONDataFiles = "/Users/frankbernal/Documents/GitHub/gladysWestMapAppPy/src/"
 
 	# read the satellite data
 	data = readSat(sat, pathToJSONDataFiles)
@@ -71,3 +71,5 @@ def gpsValue(x, y, sat):
 	value = 1234
 
 	return value
+
+print("Hello")

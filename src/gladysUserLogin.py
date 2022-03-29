@@ -16,6 +16,8 @@ def login():
 		delete the remaining code *in this function* and replace it with
 		your own code. add more code to do what the assignment asks of you.
 	"""
-	emailAddress = "malcomx@mecca.com"
+
+	emailAddress = input("Please enter your email adress: ")
+	password = input("Please enter your password: ")
 
 	return emailAddress

@@ -51,8 +51,12 @@ def runApp(userName):
 			here student needs to print their own menu. or, to do better, 
 			create a function to print your menu and simply call it here.
 		"""
-		print("-- Welcome to the Gladys West Map App --")
-		print("Type t to run tests or q to quit")
+		print("-- Welcome to the Gladys West Map App " + userName + "! --")
+		print("Type [t] to run tests")
+		print("Type [c] to set current position")
+		print("Type [d] to set destination position")
+		print("Type [m] to map")
+		print("Type [q] to quit")
 		print()
 
 		# get first character of input
@@ -69,6 +73,8 @@ def runApp(userName):
 		# quit
 		if firstChar == 'q':
 			userQuit = True
+
+		elif firstChar == 'm':
 
 		# run some tests (this is part 1 of 2)
 		elif firstChar == 't':
