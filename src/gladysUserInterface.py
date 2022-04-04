@@ -8,6 +8,9 @@ import gladysUserLogin as userLogin
 	Student: Frank Bernal
 	Module: gladysUserInterface
 	Description: This module does …
+	Status: Run tests [ ]
+			Start     [X]
+			Run App   [ ]
 """
 
 

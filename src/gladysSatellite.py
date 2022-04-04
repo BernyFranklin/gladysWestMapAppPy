@@ -5,6 +5,9 @@ import json
 	Student: Gabriel Solomon
 	Module: gladysSatellite
 	Description: This module does …
+	Status: readSat  [X]
+		    gpsValue [ ]
+
 """
 
 
@@ -53,6 +56,8 @@ def gpsValue(x, y, sat):
 
 		You can/should remove this long comment before you submit your work.  
 		I'm just giving advice to try to help you. Good luck!  -Gabriel :)
+
+		This is the path on my computer, so far it works - Frank
 	"""
 	pathToJSONDataFiles = "/Users/frankbernal/Documents/GitHub/gladysWestMapAppPy/src/"
 

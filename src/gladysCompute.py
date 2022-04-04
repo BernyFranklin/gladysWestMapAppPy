@@ -6,6 +6,9 @@ import gladysSatellite as satellite
 	Student: Gabriel Solomon
 	Module: gladysCompute
 	Description: This module does …
+	Status: gpsAverage   [ ]
+			distance     [ ]
+			
 """
 
 
