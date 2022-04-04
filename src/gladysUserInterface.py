@@ -5,7 +5,7 @@ import gladysSatellite as satellite
 import gladysUserLogin as userLogin
 
 """
-	Student: Gabriel Solomon
+	Student: Frank Bernal
 	Module: gladysUserInterface
 	Description: This module does …
 """
@@ -13,7 +13,7 @@ import gladysUserLogin as userLogin
 
 def runTests():
 	"""
-		tests some module functions
+		tests some module functions using gemeric input
 	"""
 
 	print("running a few tests")
@@ -29,7 +29,7 @@ def runTests():
 
 def start():
 	"""
-		logs the user in, and runs the app
+		logs the user in, and runs the app, this funtion is complete.
 	"""
 	print("=====================================")
 	print("Welcome to the Gladys West Map App")
@@ -42,7 +42,7 @@ def start():
 
 def runApp(userName):
 	"""
-		runs the app
+		runs the app, this function is partially done, refer to other comments
 	"""
 
 	# loop until user types q
@@ -51,8 +51,8 @@ def runApp(userName):
 
 		# menu
 		"""
-			here student needs to print their own menu. or, to do better, 
-			create a function to print your menu and simply call it here.
+			The menu display is done, however we need to link each option to 
+			the appropriate module
 		"""
 		print("-- Welcome to the Gladys West Map App " + userName + "! --")
 		print("Type [t] to run tests")
@@ -70,8 +70,8 @@ def runApp(userName):
 		# menu choices, use a switch-like if-elif control structure
 
 		"""
-			here students need to change and add to this code to
-			handle their menu options
+			The test option works, current and destination positions are started, map is incomplete,
+			quit works, and error is set.
 		"""
 		# Run tests
 		if firstChar == 't':
@@ -85,7 +85,8 @@ def runApp(userName):
 
 		# Set destination position
 		elif firstChar == 'd':
-			runTests()
+			x = input("Please enter value for x: ")
+			y = input("Please enter value for y: ")
 
 		# Map distance
 		elif firstChar == 'm':
