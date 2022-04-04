@@ -5,6 +5,7 @@ import getpass
 	Student: Frank Bernal
 	Module: gladysUserLogin
 	Description: This module prompts the user for their email address and password
+	Status: COMPLETE
 """
 
 
@@ -13,7 +14,7 @@ def login():
 		The login() function prompts the user for an email address, 
 		it starts a loop and only proceeds when the "@" and "." are present,
 		this code is very basic and only checks if the characters are present, 
-		not if they're in the right order.
+		not if they're in the right order. 
 	"""
 
 # Set flags to false to prime the loop
