@@ -49,11 +49,13 @@ def runApp(userName):
 	"""
 
 	# loop until user types q
+	# The following variables are initialized to zero
 	userQuit = False
 	currentX = 0
 	currentY = 0
 	destinationX = 0
 	destinationY = 0
+	distance = 0
 	while (not userQuit):
 
 		# menu
@@ -66,8 +68,10 @@ def runApp(userName):
 		"""
 		print()
 		print("-- Welcome to the Gladys West Map App " + userName + "! --")
-		print("Current position: X = " + str(currentX) +     " Y = " + str(currentY))
-		print("Destination:      X = " + str(destinationX) + " Y = " + str(destinationY))
+		print("Current position : X = " + str(currentX) +     " Y = " + str(currentY))
+		print("Destination      : X = " + str(destinationX) + " Y = " + str(destinationY))
+		print("Distance         : " + str(distance) + " miles")
+		print("=====================================")
 		print("Type [t] to run tests")
 		print("Type [c] to set current position")
 		print("Type [d] to set destination position")
@@ -103,7 +107,8 @@ def runApp(userName):
 
 		# Map distance
 		elif firstChar == 'm':
-			runTests()
+			currentAverage = compute.gpsAverage(currentX, currentY)
+			destinationAverage = compute.gpsAverage(destinationX, destinationY)
 		
 		# Quit
 		elif firstChar == 'q':

@@ -29,6 +29,7 @@ def gpsAverage(x, y):
 	return average
 
 
+
 def distance(current, destination):
 	"""
 		document your function definition here. what does it do?
@@ -41,3 +42,6 @@ def distance(current, destination):
 	distance = gpsAverage(3, 4)
 
 	return distance
+
+print(gpsAverage)
+print(distance)
