@@ -50,14 +50,24 @@ def runApp(userName):
 
 	# loop until user types q
 	userQuit = False
+	currentX = 0
+	currentY = 0
+	destinationX = 0
+	destinationY = 0
 	while (not userQuit):
 
 		# menu
 		"""
+			The Menu allows users to input their current position and their destination position.
+			Selecting Map computes the distance.
+			
 			The menu display is done, however we need to link each option to 
 			the appropriate module
 		"""
+		print()
 		print("-- Welcome to the Gladys West Map App " + userName + "! --")
+		print("Current position: X = " + str(currentX) +     " Y = " + str(currentY))
+		print("Destination:      X = " + str(destinationX) + " Y = " + str(destinationY))
 		print("Type [t] to run tests")
 		print("Type [c] to set current position")
 		print("Type [d] to set destination position")
@@ -82,14 +92,14 @@ def runApp(userName):
 
 		# Set current position
 		elif firstChar == 'c':
-			x = input("Please enter value for x: ")
-			y = input("Please enter value for y: ")
+			currentX = input("Please enter value for x: ")
+			currentY = input("Please enter value for y: ")
 			
 
 		# Set destination position
 		elif firstChar == 'd':
-			x = input("Please enter value for x: ")
-			y = input("Please enter value for y: ")
+			destinationX = input("Please enter value for x: ")
+			destinationY = input("Please enter value for y: ")
 
 		# Map distance
 		elif firstChar == 'm':

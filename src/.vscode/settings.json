@@ -1,3 +1,6 @@
 {
-    "json.maxItemsComputed": 10000
+    "json.maxItemsComputed": 10000,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.banditEnabled": true
 }
