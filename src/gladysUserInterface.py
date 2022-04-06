@@ -7,10 +7,11 @@ import gladysUserLogin as userLogin
 """
 	Student: Frank Bernal
 	Module: gladysUserInterface
-	Description: This module does …
-	Status: Run tests [ ]
+	Description: This module acts as an interface for the user, with options to test,
+				 set current position, set destination, map distance, run tests and quit.
+	Status: Run tests [X]
 			Start     [X]
-			Run App   [ ]
+			Run App   [X]
 """
 
 
@@ -19,33 +20,60 @@ def runTests():
 		tests some module functions using gemeric input
 	"""
 
-	print("running a few tests")
+	print("running a few tests...")
 
-	average = compute.gpsAverage(4, 5)
-	print("average = ", average)
+	# Check userLogin module
+	print()
+	print("====================================")
+	print("**Testing userLogin**")
+	print("====================================")
+	testEmail = userLogin.login()
+	print()
+	print()
+	print("testEmail = " + str(testEmail))
 
-	# delete the remaining code *in this function* and replace it with
-	# your code. add more code to do what the assignment asks you to do.
-	# add 3 more tests of different functions in different modules
-	print("hello!")
+	# Check compute module
+	print()
+	print("====================================")
+	print("**Testing gps calculations**")
+	print("====================================")
+	testAverage = compute.gpsAverage(4, 5)
+	print("GPS average (X = 4, Y = 5)= ", str(testAverage))
+
+	# Check satellite module
+	print()
+	print("====================================")
+	print("**Testing file load**")
+	print("====================================")
+	testValue = satellite.readSat("latitude", "/Users/frankbernal/Documents/GitHub/gladysWestMapAppPy/src")
+	if testValue != 0:
+		print("Satellite files loaded successfully!")
+	else:
+		print("Failure to load satellite files.")
+	
+	# Done testing
+	print()
+	print("====================================")
+	print("**Tests complete**")
+	print("====================================")
 
 
 def start():
 	"""
-		logs the user in, and runs the app, this funtion is complete.
+		logs the user in, and runs the app.
 	"""
 	print("=====================================")
 	print("Welcome to the Gladys West Map App")
 	print("Please login to continue")
 	print("=====================================")
 	userName = userLogin.login()
-	print()
 	runApp(userName)
 
 
 def runApp(userName):
 	"""
-		runs the app, this function is partially done, refer to other comments
+		runs the app, gives the user the ability to set current position, destination,
+		map distance, run tests, or quit.
 	"""
 
 	# loop until user types q
@@ -62,15 +90,16 @@ def runApp(userName):
 		"""
 			The Menu allows users to input their current position and their destination position.
 			Selecting Map computes the distance.
+			Selecting run tests, tests the different modules
 			
-			The menu display is done, however we need to link each option to 
-			the appropriate module
 		"""
 		print()
-		print("-- Welcome to the Gladys West Map App " + userName + "! --")
+		print("=====================================")
+		print("Welcome to the Gladys West Map App " + userName + "!")
+		print("=====================================")
 		print("Current position : X = " + str(currentX) +     " Y = " + str(currentY))
 		print("Destination      : X = " + str(destinationX) + " Y = " + str(destinationY))
-		print("Distance         : " + str(distance) + " miles")
+		print("Distance         : " + str(round(distance, 2)) + " miles")
 		print("=====================================")
 		print("Type [t] to run tests")
 		print("Type [c] to set current position")
@@ -84,12 +113,8 @@ def runApp(userName):
 		lowerInput = userInput.lower()
 		firstChar = lowerInput[0:1]
 
-		# menu choices, use a switch-like if-elif control structure
+		# menu choices, uses an if elif statement
 
-		"""
-			The test option works, current and destination positions are started, map is incomplete,
-			quit works, and error is set.
-		"""
 		# Run tests
 		if firstChar == 't':
 			runTests()
@@ -107,8 +132,9 @@ def runApp(userName):
 
 		# Map distance
 		elif firstChar == 'm':
-			currentAverage = compute.gpsAverage(currentX, currentY)
-			destinationAverage = compute.gpsAverage(destinationX, destinationY)
+			currentAverage = compute.gpsAverage(int(currentX), int(currentY))
+			destinationAverage = compute.gpsAverage(int(destinationX), int(destinationY))
+			distance = compute.distance(float(currentAverage), float(destinationAverage))
 		
 		# Quit
 		elif firstChar == 'q':

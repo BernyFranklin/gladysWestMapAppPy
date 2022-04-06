@@ -2,11 +2,17 @@ import io
 import json
 
 """
-	Student: Gabriel Solomon
+	Student: Frank Bernal
 	Module: gladysSatellite
-	Description: This module does …
+	Description: This module reads "readSat()" 1 of 4 JSON files ("latitude", "longitude", 
+				 "altitude", or "time") when called and stores it in variable "data". 
+				 
+				 The gpsValue() function uses the readSat() function to load the data from 
+				 the JSON, Data is read into a dictionary using the X and Y values as keys, to 
+				 retrieve the values and returns dataValue
+
 	Status: readSat  [X]
-		    gpsValue [ ]
+		    gpsValue [X]
 
 """
 
@@ -38,42 +44,41 @@ def readSat(sat, pathToJSONDataFiles):
 
 def gpsValue(x, y, sat):
 	"""
-		document your function definition here. what does it do?
+		This function reads the satellite data required to the associated call from the compute 
+		module. Reads the data into a dicitonary. Uses the Xand Y as a key to grab the value and 
+		return to the module that called it.
 	"""
-
-	"""
-		This first part of this function to read satelite data only read 
-		satellite data. students need to change the pathToJSONDataFiles 
-		variable so it works on your computer.
-
-		this is *windows* path, not a mac path.
-		if you do not know what a path (on a computer) is, you should use google and
-		youtube to learn, or come to office hours so I can explain it to you.
-
-		students will need to change this pathToJSONDataFiles variable to point to
-		where you have the data files stoed on your computer.  If you do not
-		change it, the code will not "work".
-
-		You can/should remove this long comment before you submit your work.  
-		I'm just giving advice to try to help you. Good luck!  -Gabriel :)
-
-		This is the path on my computer, so far it works - Frank
-	"""
-	pathToJSONDataFiles = "/Users/frankbernal/Documents/GitHub/gladysWestMapAppPy/src/"
+	#initialize 
+	dataValue = 0
+	# Location of all JSONs
+	pathToJSONDataFiles = "/Users/frankbernal/Documents/GitHub/gladysWestMapAppPy/src"
 
 	# read the satellite data
 	data = readSat(sat, pathToJSONDataFiles)
 
-	"""
-		delete the remaining code *in this function* and replace it with
-		your own code. add more code to do what the assignment asks of you.
+	# create an empty dictionary
+	dataDictionary = {}
 
-		tip: here is where students need to look through the data variable
-		read from the satellites and find a matching x,y to return the value.
-		to understand better, open and look at the json satellite data in
-		vs code.
-	"""
-	value = 1234
+	# read data into dataDictionary
+	# create keys to xVal and yVal to correlate to the value in the JSON
+	for elem in data:
+		xVal = elem["x"]
+		yVal = elem["y"]
+		value  = elem["value"]
+		
+		dataDictionary[(xVal, yVal)] = value
+		
+		# Find the user input as a key and return the value as dataValue
+		# If X or Y is out of bounds return error
+		if (x, y) in dataDictionary:
+			dataValue = dataDictionary[(x, y)]
+		else:
+			dataValue = "ERROR: NO DATA FOUND WITH THOSE VALUES"
+		
+	return dataValue
 
-	return value
-
+# Test prints for all JSONs
+#print(gpsValue(99, 46, "latitude"))
+#print(gpsValue(99, 46, "longitude"))
+#print(gpsValue(99, 46, "altitude"))
+#print(gpsValue(99, 46, "time"))
